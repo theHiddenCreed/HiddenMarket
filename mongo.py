@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MONGO_CONNECTION_STRING = os.getenv('MONGODB_CONNECTION_STRING')
+MONGO_CONNECTION_STRING = os.getenv('MONGO_STRING_CONNECTION')
 
 class Database:
 	'''https://www.mongodb.com/docs/manual/reference/operator/query/'''
