@@ -1,6 +1,7 @@
 
 import requests
 from datetime import datetime
+import pytz
 
 from mongo import Database
 
@@ -14,7 +15,9 @@ FREQUENCY_MINUTES = '1'
 
 RESOLUTION = '1D'
 
-to = str(int(datetime.now().timestamp()))
+timezone = pytz.timezone('America/Sao_Paulo')
+
+to = str(int(datetime.now(tz=timezone).timestamp()))
 
 VOLUME = 'true'
 AFTER_HOURS = 'true'
@@ -52,7 +55,7 @@ for i in symbols:
 
     URL = f'''{BASE_URL}symbol=BOV%5E{i}&frequency={FREQUENCY_MINUTES}&resolution={RESOLUTION}&to={to}&volume={VOLUME}&afterhours={AFTER_HOURS}&errorMode={ERROR_MODE}'''
 
-    print(datetime.now())
+    print(URL)
 
     data = requests.get(
         URL, 
